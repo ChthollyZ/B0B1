@@ -165,10 +165,9 @@ class ModelPlain(ModelBase):
         self.G_optimizer.zero_grad()
         self.netG_forward()
 
-        # G_loss = self.G_lossfn_weight * self.G_lossfn(self.E, 2 * self.H - self.B0)
+        G_loss = self.G_lossfn_weight * self.G_lossfn(self.E, 2 * self.H - self.B0)
         # G_loss = self.G_lossfn_weight * self.G_lossfn(self.E, self.H)
 
-        G_loss = self.G_lossfn(self.E, 2 * self.H - self.B0)#+ torch.abs(torch.sum(2 * self.H - self.B0 - self.E) /self.H.shape[1]/self.H.shape[2]/self.H.shape[3])
         G_loss.backward()
 
         # ------------------------------------
