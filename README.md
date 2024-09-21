@@ -4,7 +4,7 @@
 在DatasetSR中读取了B0
 
 # 2 /models/model_plain.py
-在optimize_parameters函数中，更改了损失函数
+在optimize_parameters函数中，更改了损失函数为(2GT - B0 - B1)
 
 # 3 训练函数使用 main_train_psnr_loss.py
 实例：python -m torch.distributed.launch --nproc_per_node=6 main_train_psnr_loss.py --epoch 10000 --opt /root/gsr/loss_change/change_loss.json  --dist True
